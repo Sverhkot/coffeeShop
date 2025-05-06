@@ -1,4 +1,5 @@
 import { Flex, SimpleGrid } from "@chakra-ui/react"
+import { useNavigate } from 'react-router-dom'
 
 import Header from './Header'
 import Footer from './Footer'
@@ -6,6 +7,13 @@ import ProductCard from './ProductCard'
 import products from '../../data/products.js'
 
 function Home() {
+  const navigate = useNavigate();
+
+  const handleClick = (product) => {
+    console.log(product);
+    navigate(`/product/${product.id}`);
+  }
+  
     return <>
       <Header/>
       <SimpleGrid 
@@ -20,11 +28,13 @@ function Home() {
             key={product.id}
             align="center" 
             justify="center" 
+            cursor="pointer"
+            onClick={() => handleClick(product)} 
           >
             <ProductCard
               name={product.name}
-              description={product.description}
               price={product.price}
+              description={product.description}
             />
           </Flex>
         ))}

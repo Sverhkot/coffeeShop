@@ -1,8 +1,7 @@
 import { Box, Text } from "@chakra-ui/react"
-// import { HomeIcon } from '@radix-ui/react-icons';
 
 function Heder() {
-  const url = "url(coffee_header.png)"
+  const url = "url('/coffee_header.png')"
   const header = "Great Coffee Delivered"
   
   return <>
